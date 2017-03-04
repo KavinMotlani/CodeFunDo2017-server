@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 var dbUrl = "mongodb://coupontable:ranMA3SJCtoOdHYRzvFZw45fllNkzQ12qR7S37HmwFvrVJ9V7t2zoLadMflD0mt242Zcstx0nncY3iq7fIvDnw==@coupontable.documents.azure.com:10250/?ssl=true";
 
@@ -17,6 +18,8 @@ var conn = mongoose.connect(dbUrl);
 var apiRouter = require('./router');
 
 var app = express();
+
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
