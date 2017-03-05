@@ -28,3 +28,14 @@ exports.CPN = async(function* (req, res) {
     }
 
 });
+
+exports.clearCoupons = async(function* (req, res){
+    try{
+        yield Coupon.remove({}).exec();
+        
+        res.status(204).send('database cleared');
+    }
+    catch (err) {
+        res.send(err);
+    }
+});
