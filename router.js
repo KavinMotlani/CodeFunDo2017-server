@@ -12,4 +12,7 @@ apiRouter.route('/coupons')
 	.get(CouponCtrl.CPN)
 	.post(CouponCtrl.addCoupon);
 
+apiRouter.route('/delcoupon')
+	.delete(CouponCtrl.clearCoupons);
+
 module.exports = apiRouter;
